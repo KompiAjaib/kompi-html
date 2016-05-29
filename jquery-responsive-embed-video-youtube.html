@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Responsive Embed Videos</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+	body {
+		padding-bottom: 60px;
+	}
+	</style>
+  </head>
+  <body>
+    <h1 class="text-center"><strong>Jquery responsive embed Youtube videos</strong></h1>
+    <h2 class="text-center">With defer iframe</h2>
+        <div class="container">
+        <div class="row">
+          <h3><a class="btn btn-default btn-sm" href="http://www.kompiajaib.com/2016/05/jquery-responsive-embed-youtube-videos.html" title="Back to article">Back to article</a></h3>
+          </div>
+          </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/fk4BbF7B29w" frameborder="0" allowfullscreen></iframe>
+
+                <hr>
+                
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/HL1UzIK-flA" frameborder="0" allowfullscreen></iframe>
+
+                <hr>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YQHsXMglC9A" frameborder="0" allowfullscreen></iframe>
+                
+            </div>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('iframe[src*="youtube.com"]').wrap('<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0 auto;width:100%"></div>');
+    $('iframe[src*="youtube.com"]').css({
+        "position": "absolute",
+        "top": "0",
+        "left": "0",
+        "width": "100%",
+        "height": "100%",
+        "border": "0"
+    });
+    $('iframe[src*="youtube.com"]').each(function() {
+        $(this).attr("data-src", $(this).attr("src"));
+        $(this).attr("src", "")
+    });
+});
+
+function init() {
+    var vidDefer = document.getElementsByTagName('iframe');
+    for (var i = 0; i < vidDefer.length; i++) {
+        if (vidDefer[i].getAttribute('data-src')) {
+            vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
+        }
+    }
+}
+window.onload = init;
+</script>
+  </body>
+</html>
