@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>infinite scrolling background image</title>
+<style>
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans'),local('OpenSans'),url(http://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype')}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(http://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzInF5uFdDttMLvmWuJdhhgs.ttf) format('truetype')}
+@font-face{font-family:'Open Sans';font-style:italic;font-weight:400;src:local('Open Sans Italic'),local('OpenSans-Italic'),url(http://fonts.gstatic.com/s/opensans/v10/xjAJXh38I15wypJXxuGMBp0EAVxt0G0biEntp43Qt6E.ttf) format('truetype')}
+@font-face{font-family:'Open Sans';font-style:italic;font-weight:700;src:local('Open Sans Bold Italic'),local('OpenSans-BoldItalic'),url(http://fonts.gstatic.com/s/opensans/v10/PRmiXeptR36kaC0GEAetxp_TkvowlIOtbR7ePgFOpF4.ttf) format('truetype')}
+
+body{padding:0;margin:0;background:#ddd;font-family:'Open Sans',Helvetica,Arial,sans-serif;text-align:center}
+.back{
+background-color:#111;
+padding:5px 10px;
+color:#fff;
+position:absolute;
+top:23px;
+left: 100px;
+font-family:'Open Sans',Helvetica,Arial,sans-serif;
+}
+h1{
+margin:50px auto 15px;
+font-weight:700;font-family:'Open Sans',Helvetica,Arial,sans-serif;
+}
+h2{
+float:left;text-align:left;width:100%;font-weight:400;margin:10px;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:16px;
+}
+p{margin-bottom:30px;font-size:36px}
+#page_content{margin:0;padding:20px;width:100%;height:100+%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;text-align:center;}
+.nav{
+margin:0 auto;
+padding:0;
+height:50px;
+line-height:50px;
+background:#fff;
+color:#555;
+font-size:24px;
+font-weight:700;
+text-align:center;
+}
+#scroller {
+padding:0;
+margin:0;
+width:100%;
+height:6px;
+background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGAcIDASEAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAQACAwT/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/2gAMAwEAAhADEAAAAfHdeVAy0ZXKqCsNY9F8TSllac6050udcO9L3Hm+gDrJVGaoHQN74OPEevwM5oVE01IucVSf/8QAHRAAAwEAAgMBAAAAAAAAAAAAAAERIQISAxAwMf/aAAgBAQABBQKMjIyMjIyMjIyMjNKU0jIyMjNNNNNN9dzj5Gj9+cZ1OXjp1ZGRkZGRkZGRkZGRl9//xAAdEQACAgEFAAAAAAAAAAAAAAAAAREgAgMQEiMx/9oACAEDAQE/AaLZ9ivhqNMVnGagahxbw5H/xAAcEQACAgIDAAAAAAAAAAAAAAABEQADECACMDH/2gAIAQIBAT8B28yYYcWUBKI7V2niXAWH0f/EABgQAQEBAQEAAAAAAAAAAAAAADEAECBQ/9oACAEBAAY/AmZnx2ZxxmZnn//EAB4QAAIDAQEAAwEAAAAAAAAAAAABEVFhIRAgQXHw/9oACAEBAAE/IfUl/JmhoaGhoaGg0imSdsTWJWNDQ0NBKxFiLEWIsRY6lMk3+HMfUJwTRDOjTIZDIdkOyHY07IdmhyusV9oY0uPSWni1+SSS0JWS7Jds/9oADAMBAAIAAwAAABDJTLZaYXOvQ/ejrR78jO//xAAZEQEBAQEBAQAAAAAAAAAAAAABABEQMVH/2gAIAQMBAT8QiPI40IGDIjljYxHNBLTYiMjLT5HQLY+Jmep74//EABsRAQEBAAMBAQAAAAAAAAAAAAEAESAhMUFR/9oACAECAQE/EOXqZ4BNZnd3YObAwP7AwN5YFEQ+88v/xAAlEAEBAAECBAYDAAAAAAAAAAABAPAR8UFRYdEQITFxobGBkeH/2gAIAQEAAT8QyLZFsi2RRv2xrY1sa2NbOtjWRLynVhO5ej1ae8o1+7Gr3tjWxsblt1je2Vjexpd8byRnA6y7Q1PdcPDhMqQec8yTm+biH5nmXUmCP9eC3KzM7htesqx+oucMz8zTq2RbItnWyLZVsi2RbItkWyLImv3brv3AeiPzb9f/2Q==);
+background-repeat: repeat-x;
+}
+</style>
+
+</head>
+<body>
+
+<a href="http://www.kompiajaib.com/2016/01/membuat-infinite-scrolling-background.html" title="Back to article"><div class="back">
+Back to article
+</div></a>
+
+
+<h1>Demo Page</h1>
+<p>Infinite Scrolling Background Image</p>
+
+<div id="page_content">
+<div class="nav">Navigasi</div>
+<div id="scroller"> </div>
+</div>
+
+<script>
+function StartMove() {
+    var cssBGImage = new Image();
+    cssBGImage.src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGAcIDASEAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAQACAwT/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/2gAMAwEAAhADEAAAAfHdeVAy0ZXKqCsNY9F8TSllac6050udcO9L3Hm+gDrJVGaoHQN74OPEevwM5oVE01IucVSf/8QAHRAAAwEAAgMBAAAAAAAAAAAAAAERIQISAxAwMf/aAAgBAQABBQKMjIyMjIyMjIyMjNKU0jIyMjNNNNNN9dzj5Gj9+cZ1OXjp1ZGRkZGRkZGRkZGRl9//xAAdEQACAgEFAAAAAAAAAAAAAAAAAREgAgMQEiMx/9oACAEDAQE/AaLZ9ivhqNMVnGagahxbw5H/xAAcEQACAgIDAAAAAAAAAAAAAAABEQADECACMDH/2gAIAQIBAT8B28yYYcWUBKI7V2niXAWH0f/EABgQAQEBAQEAAAAAAAAAAAAAADEAECBQ/9oACAEBAAY/AmZnx2ZxxmZnn//EAB4QAAIDAQEAAwEAAAAAAAAAAAABEVFhIRAgQXHw/9oACAEBAAE/IfUl/JmhoaGhoaGg0imSdsTWJWNDQ0NBKxFiLEWIsRY6lMk3+HMfUJwTRDOjTIZDIdkOyHY07IdmhyusV9oY0uPSWni1+SSS0JWS7Jds/9oADAMBAAIAAwAAABDJTLZaYXOvQ/ejrR78jO//xAAZEQEBAQEBAQAAAAAAAAAAAAABABEQMVH/2gAIAQMBAT8QiPI40IGDIjljYxHNBLTYiMjLT5HQLY+Jmep74//EABsRAQEBAAMBAQAAAAAAAAAAAAEAESAhMUFR/9oACAECAQE/EOXqZ4BNZnd3YObAwP7AwN5YFEQ+88v/xAAlEAEBAAECBAYDAAAAAAAAAAABAPAR8UFRYdEQITFxobGBkeH/2gAIAQEAAT8QyLZFsi2RRv2xrY1sa2NbOtjWRLynVhO5ej1ae8o1+7Gr3tjWxsblt1je2Vjexpd8byRnA6y7Q1PdcPDhMqQec8yTm+biH5nmXUmCP9eC3KzM7htesqx+oucMz8zTq2RbItnWyLZVsi2RbItkWyLImv3brv3AeiPzb9f/2Q==";
+    window.cssMaxWidth = cssBGImage.width;
+    window.cssXPos = 0;
+    setInterval("MoveBackGround()", 50);
+}
+
+function MoveBackGround() {
+    window.cssXPos = window.cssXPos + 1;
+    if (window.cssXPos >= window.cssMaxWidth) {
+        window.cssXPos = 0;
+    }
+    toMove = document.getElementById("scroller");
+    toMove.style.backgroundPosition = window.cssXPos + "px 0px";
+}
+window.onload=function(){
+StartMove()
+}
+</script>
+
+</body>
+</html>
