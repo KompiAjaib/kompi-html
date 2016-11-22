@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Custom Scroll With CSS</title>
+<style>
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzInF5uFdDttMLvmWuJdhhgs.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(http://fonts.gstatic.com/s/opensans/v10/xjAJXh38I15wypJXxuGMBp0EAVxt0G0biEntp43Qt6E.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(http://fonts.gstatic.com/s/opensans/v10/PRmiXeptR36kaC0GEAetxp_TkvowlIOtbR7ePgFOpF4.ttf) format('truetype')
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%
+}
+
+.back {
+  background-color: #111;
+  padding: 5px 10px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  margin: 50px auto 15px;
+  font-weight: 700;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  float: left;
+  text-align: left;
+  width: 100%;
+  font-weight: 400;
+  margin: 10px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+p {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.3em
+}
+
+#page_content {
+  background: #ddd;
+  transition: all .4s ease-in-out;
+  margin: 0;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.main {
+  background-color: #FFFFFF;
+  border: 1px solid #ccc;
+  width: 30%;
+  margin: 0 auto;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 100%;
+  padding: 0 20px;
+  margin: 20px auto;
+  text-align: left;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+h1.content {
+  font-size: 116%;
+  color: #fff;
+  background: #50506d;
+  margin: 0 0 1em;
+  padding: 4px 8px 5px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+h2.content {
+  clear: left;
+  font-size: 100%;
+  color: #fff;
+  background: #8b8b9f;
+  margin: 1em 0 0;
+  padding: 4px 8px 5px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+p {
+  font-size: 93%;
+  margin: 1em 0;
+}
+
+.scroll-pane {
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+}
+
+.horizontal-only {
+  height: auto;
+  max-height: 200px;
+}
+
+.scroll-pane::-webkit-scrollbar {
+  width: 8px
+}
+
+.horizontal-only::-webkit-scrollbar {
+  height: 8px
+}
+
+.scroll-pane::-webkit-scrollbar-track,
+.horizontal-only::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: 2px
+}
+
+.scroll-pane::-webkit-scrollbar-thumb:hover,
+.horizontal-only::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, .6)
+}
+
+.scroll-pane::-webkit-scrollbar-thumb,
+.horizontal-only::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, .4);
+  transition: all 400ms ease-in-out
+}
+
+</style>
+
+</head>
+<body>
+
+<a href="http://www.kompiajaib.com/2015/12/custom-scroll-bar-dan-show-hide-scroll.html" title="Back to article">
+  <div class="back">
+    Back to article
+  </div>
+</a>
+
+<div id="page_content">
+  <div class="main">
+    <div id="container">
+      <h1 class="content">Custom Scroll With CSS</h1>
+
+      <h2 class="content">Vertical only</h2>
+      <div class="scroll-pane">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ligula id sem tristique ultrices eget id neque. Duis enim turpis, tempus at accumsan vitae, lobortis id sapien. Pellentesque nec orci mi, in pharetra ligula. Nulla facilisi. Nulla facilisi.
+          Mauris convallis venenatis massa, quis consectetur felis ornare quis. Sed aliquet nunc ac ante molestie ultricies. Nam pulvinar ultricies bibendum. Vivamus diam leo, faucibus et vehicula eu, molestie sit amet dui. Proin nec orci et elit semper
+          ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed quis urna mi, ac dignissim mauris. Quisque mollis ornare mauris, sed laoreet diam malesuada quis. Proin vel elementum ante. Donec hendrerit arcu
+          ac odio tincidunt posuere. Vestibulum nec risus eu lacus semper viverra.
+        </p>
+        <p>
+          Vestibulum dictum consectetur magna eu egestas. Praesent molestie dapibus erat, sit amet sodales lectus congue ut. Nam adipiscing, tortor ac blandit egestas, lorem ligula posuere ipsum, nec faucibus nisl enim eu purus. Quisque bibendum diam quis nunc
+          eleifend at molestie libero tincidunt. Quisque tincidunt sapien a sapien pellentesque consequat. Mauris adipiscing venenatis augue ut tempor. Donec auctor mattis quam quis aliquam. Nullam ultrices erat in dolor pharetra bibendum. Suspendisse
+          eget odio ut libero imperdiet rhoncus. Curabitur aliquet, ipsum sit amet aliquet varius, est urna ullamcorper magna, sed eleifend libero nunc non erat. Vivamus semper turpis ac turpis volutpat non cursus velit aliquam. Fusce id tortor id sapien
+          porta egestas. Nulla venenatis luctus libero et suscipit. Sed sed purus risus. Donec auctor, leo nec eleifend vehicula, lacus felis sollicitudin est, vitae lacinia lectus urna nec libero. Aliquam pellentesque, arcu condimentum pharetra vestibulum,
+          lectus felis malesuada felis, vel fringilla dolor dui tempus nisi. In hac habitasse platea dictumst. Ut imperdiet mauris vitae eros varius eget accumsan lectus adipiscing.
+        </p>
+        <p>
+          Quisque et massa leo, sit amet adipiscing nisi. Mauris vel condimentum dolor. Duis quis ullamcorper eros. Proin metus dui, facilisis id bibendum sed, aliquet non ipsum. Aenean pulvinar risus eu nisi dictum eleifend. Maecenas mattis dolor eget lectus pretium
+          eget molestie libero auctor. Praesent sit amet tellus sed nibh convallis semper. Curabitur nisl odio, feugiat non dapibus sed, tincidunt ut est. Nullam erat velit, suscipit aliquet commodo sit amet, mollis in mauris. Curabitur pharetra dictum
+          interdum. In posuere pretium ultricies. Curabitur volutpat eros vehicula quam ultrices varius. Proin volutpat enim a massa tempor ornare. Sed ullamcorper fermentum nisl, ac hendrerit sem feugiat ac. Donec porttitor ullamcorper quam. Morbi pretium
+          adipiscing quam, quis bibendum diam congue eget. Sed at lectus at est malesuada iaculis. Sed fermentum quam dui. Donec eget ipsum dolor, id mollis nisi. Donec fermentum vehicula porta.
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+          placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
+          lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+          placerat eleifend leo.
+        </p>
+      </div>
+      <h2 class="content">Horizontal only</h2>
+      <div class="scroll-pane horizontal-only">
+        <p style="width: 1000px;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ligula id sem tristique ultrices eget id neque. Duis enim turpis, tempus at accumsan vitae, lobortis id sapien. Pellentesque nec orci mi, in pharetra ligula. Nulla facilisi. Nulla facilisi.
+          Mauris convallis venenatis massa, quis consectetur felis ornare quis. Sed aliquet nunc ac ante molestie ultricies. Nam pulvinar ultricies bibendum. Vivamus diam leo, faucibus et vehicula eu, molestie sit amet dui. Proin nec orci et elit semper
+          ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed quis urna mi, ac dignissim mauris. Quisque mollis ornare mauris, sed laoreet diam malesuada quis. Proin vel elementum ante. Donec hendrerit arcu
+          ac odio tincidunt posuere. Vestibulum nec risus eu lacus semper viverra.
+        </p>
+      </div>
+      <h2 class="content">Both</h2>
+      <div class="scroll-pane horizontal-only">
+        <p style="width: 1000px">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ligula id sem tristique ultrices eget id neque. Duis enim turpis, tempus at accumsan vitae, lobortis id sapien. Pellentesque nec orci mi, in pharetra ligula. Nulla facilisi. Nulla facilisi.
+          Mauris convallis venenatis massa, quis consectetur felis ornare quis. Sed aliquet nunc ac ante molestie ultricies. Nam pulvinar ultricies bibendum. Vivamus diam leo, faucibus et vehicula eu, molestie sit amet dui. Proin nec orci et elit semper
+          ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed quis urna mi, ac dignissim mauris. Quisque mollis ornare mauris, sed laoreet diam malesuada quis. Proin vel elementum ante. Donec hendrerit arcu
+          ac odio tincidunt posuere. Vestibulum nec risus eu lacus semper viverra.
+        </p>
+        <p>
+          Vestibulum dictum consectetur magna eu egestas. Praesent molestie dapibus erat, sit amet sodales lectus congue ut. Nam adipiscing, tortor ac blandit egestas, lorem ligula posuere ipsum, nec faucibus nisl enim eu purus. Quisque bibendum diam quis nunc
+          eleifend at molestie libero tincidunt. Quisque tincidunt sapien a sapien pellentesque consequat. Mauris adipiscing venenatis augue ut tempor. Donec auctor mattis quam quis aliquam. Nullam ultrices erat in dolor pharetra bibendum. Suspendisse
+          eget odio ut libero imperdiet rhoncus. Curabitur aliquet, ipsum sit amet aliquet varius, est urna ullamcorper magna, sed eleifend libero nunc non erat. Vivamus semper turpis ac turpis volutpat non cursus velit aliquam. Fusce id tortor id sapien
+          porta egestas. Nulla venenatis luctus libero et suscipit. Sed sed purus risus. Donec auctor, leo nec eleifend vehicula, lacus felis sollicitudin est, vitae lacinia lectus urna nec libero. Aliquam pellentesque, arcu condimentum pharetra vestibulum,
+          lectus felis malesuada felis, vel fringilla dolor dui tempus nisi. In hac habitasse platea dictumst. Ut imperdiet mauris vitae eros varius eget accumsan lectus adipiscing.
+        </p>
+        <p>
+          Quisque et massa leo, sit amet adipiscing nisi. Mauris vel condimentum dolor. Duis quis ullamcorper eros. Proin metus dui, facilisis id bibendum sed, aliquet non ipsum. Aenean pulvinar risus eu nisi dictum eleifend. Maecenas mattis dolor eget lectus pretium
+          eget molestie libero auctor. Praesent sit amet tellus sed nibh convallis semper. Curabitur nisl odio, feugiat non dapibus sed, tincidunt ut est. Nullam erat velit, suscipit aliquet commodo sit amet, mollis in mauris. Curabitur pharetra dictum
+          interdum. In posuere pretium ultricies. Curabitur volutpat eros vehicula quam ultrices varius. Proin volutpat enim a massa tempor ornare. Sed ullamcorper fermentum nisl, ac hendrerit sem feugiat ac. Donec porttitor ullamcorper quam. Morbi pretium
+          adipiscing quam, quis bibendum diam congue eget. Sed at lectus at est malesuada iaculis. Sed fermentum quam dui. Donec eget ipsum dolor, id mollis nisi. Donec fermentum vehicula porta.
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+          placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
+          lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </p>
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+          placerat eleifend leo.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
