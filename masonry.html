@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Masonry Grid Layout</title>
+<style>
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans'),local('OpenSans'),url(http://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype')}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'),local('OpenSans-Bold'),url(http://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzInF5uFdDttMLvmWuJdhhgs.ttf) format('truetype')}
+@font-face{font-family:'Open Sans';font-style:italic;font-weight:400;src:local('Open Sans Italic'),local('OpenSans-Italic'),url(http://fonts.gstatic.com/s/opensans/v10/xjAJXh38I15wypJXxuGMBp0EAVxt0G0biEntp43Qt6E.ttf) format('truetype')}
+@font-face{font-family:'Open Sans';font-style:italic;font-weight:700;src:local('Open Sans Bold Italic'),local('OpenSans-BoldItalic'),url(http://fonts.gstatic.com/s/opensans/v10/PRmiXeptR36kaC0GEAetxp_TkvowlIOtbR7ePgFOpF4.ttf) format('truetype')}
+
+body{padding:0;margin:0;}
+.back{
+background-color:#111;
+padding:5px 10px;
+color:#fff;
+position:absolute;
+top:23px;
+left: 100px;
+font-family:'Open Sans',Helvetica,Arial,sans-serif;
+}
+h1{
+margin:50px auto 15px;
+font-weight:700;font-family:'Open Sans',Helvetica,Arial,sans-serif;
+}
+h2{
+float:left;text-align:left;width:100%;font-weight:400;margin:10px;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:16px;
+}
+p{margin-bottom:30px;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:36px}
+#page_content{background:#ddd;transition:all .4s ease-in-out;margin:0;padding:20px;text-align:center;}
+.main{
+background-color:#FFFFFF;
+border:1px solid #ccc;
+width:80%;
+margin:0 auto;
+padding:2% 0 0 2%;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.post{
+width:22%;
+background:#666666;
+margin:0 2% 2% 0;
+padding:0
+}
+.item1{
+height:100px;
+}
+.item2{
+height:200px;
+}
+.item3{
+height:150px;
+}
+.item4{
+height:180px;
+}
+</style>
+
+</head>
+<body>
+
+<a href="http://www.kompiajaib.com/2015/11/merapihkan-tampilan-grid-dengan-masonry.html" title="Back to article"><div class="back">
+Back to article
+</div></a>
+
+<div id="page_content">
+<h1>Demo Page</h1>
+<p>Masonry Layout</p>
+
+<div id="page_content">
+<div class="main">
+<div class="post item1"></div>
+<div class="post item2"></div>
+<div class="post item3"></div>
+<div class="post item4"></div>
+<div class="post item1"></div>
+<div class="post item3"></div>
+<div class="post item2"></div>
+<div class="post item3"></div>
+<div class="post item4"></div>
+<div class="post item1"></div>
+<div class="post item1"></div>
+<div class="post item2"></div>
+<div class="post item3"></div>
+<div class="post item4"></div>
+<div class="post item1"></div>
+<div class="post item3"></div>
+<div class="post item2"></div>
+<div class="post item3"></div>
+<div class="post item4"></div>
+<div class="post item1"></div>
+</div>
+</div>
+
+<script type='text/javascript'>
+//<![CDATA[
+document.write("<scr" + "ipt type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js\"></scr" + "ipt>");
+//]]>
+</script>
+<script type='text/javascript'>
+//<![CDATA[
+var elem = document.querySelector('.main');
+var msnry = new Masonry( elem, {
+  // options
+  itemSelector: '.post'
+});
+//]]>
+  </script>
+
+</body>
+</html>
