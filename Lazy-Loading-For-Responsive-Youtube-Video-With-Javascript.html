@@ -1,0 +1,78 @@
+<link href='https://cdn.rawgit.com/KompiAjaib/font-awesome-4.6.3/master/css/font-awesome.min.css' rel='stylesheet'/>
+<style>
+/*<![CDATA[*/
+.youtube_box{
+	max-width:600px;
+	width:100%;
+	margin:0 auto;
+	clear:both;
+}
+.youtube{
+    text-align:center;
+    margin:0 auto;
+    width:100%;
+}
+.youtube-resposive{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+    margin:0;
+}
+.youtube img{
+    width:100%;
+    height:auto;
+    margin-top:-9%;
+    z-index:1;
+}
+.youtube iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:2;
+}
+.youtube-resposive:before{
+    content:"\f16a";
+    font-family:FontAwesome;
+    font-size:400%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-32px 0 0 -32px;
+    cursor:pointer;
+    opacity:.7;
+    transition: all 0.2s ease-out;
+}
+.youtube-resposive:hover:before{
+    color:red!important;
+    opacity:1;
+}
+/*]]>*/
+</style>
+<div class="youtube_box">
+<script>
+//<![CDATA[
+function embed(video) {
+   document.write('<div class="youtube" onclick="videoPlay(this)"><div class="youtube-resposive"><img alt="youtube image" src="http://i.ytimg.com/vi/');
+document.write(video);
+document.write('/sddefault.jpg" width="500" height="281"/>');
+   document.write('<!--<iframe src="http://www.youtube.com/embed/');
+   document.write(video);
+   document.write('?autoplay=1&autohide=1" frameborder="0" allowfullscreen="1"></iframe>--></div></div>');
+}
+//]]>
+</script>
+<script>embed("jlQVAlmXqoE");</script>
+<br />
+<script>
+//<![CDATA[
+function videoPlay(anchor){
+   anchor.innerHTML = anchor.innerHTML.replace('<!--','').replace('-->','');
+   anchor.onclick= null;
+   return false;
+};
+//]]>
+</script>
+</div>
