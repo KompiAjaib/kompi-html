@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Facebook Page Plugin</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style>
+body {
+  background-color:transparent;
+  margin:0;
+  padding:0;
+  height:10000px;
+}
+#modal1 iframe{border:0;margin-bottom:-5px}
+.overlay{position:fixed;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);overflow:hidden;transition:opacity .2s;display:none;z-index:100000}
+.overlay .cancel{position:absolute;width:100%;height:100%;cursor:default}
+.modal{margin:-165px auto 0;top:50%;padding:0;width:300px;box-shadow:0 0 50px rgba(0,0,0,.5);position:relative;text-align:center;-webkit-animation-name:slideInUp;animation-name:slideInUp;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
+.open_fbplugin{position:fixed;bottom:0;right:0;cursor:pointer;}
+.open_fbplugin:hover .popover{display:block;}
+.popover{position:absolute;top:-60px;right:5px;z-index:1060;display:none;width:276px;padding:5px 10px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;font-style:normal;font-weight:400;line-height:1.42857143;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;letter-spacing:normal;word-break:normal;word-spacing:normal;word-wrap:normal;white-space:normal;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #ccc;border:1px solid rgba(0,0,0,.2);border-radius:6px;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 5px 10px rgba(0,0,0,.2);line-break:auto;}
+.popover p{margin:0;padding:0}
+.popover:before{bottom:-19px;right:10px;content:" ";border-top-color:#fff!important;border-left-color:transparent!important;border-right-color:transparent!important;border-bottom-width:0;border-width:10px;position:absolute;width:0;height:0;border-color:transparent;
+border-style:solid;z-index:2}
+.popover:after{bottom:-20px;right:10px;content:" ";border-top-color:#999!important;border-left-color:transparent!important;border-right-color:transparent!important;border-bottom-width:0;border-width:10px;position:absolute;width:0;height:0;border-color:transparent;
+border-style:solid;z-index:1}
+@-webkit-keyframes slideInUp{0%{-webkit-transform:translateY(100%);transform:translateY(100%);visibility:visible}100%{-webkit-transform:translateY(0);transform:translateY(0)}}
+@keyframes slideInUp{0%{-webkit-transform:translateY(100%);transform:translateY(100%);visibility:visible}100%{-webkit-transform:translateY(0);transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div onclick="showDiv()" class="open_fbplugin">
+<svg style="width:44px;height:44px" viewBox="0 0 24 24">
+    <path fill="#007fff" d="M12,2C6.5,2 2,6.14 2,11.25C2,14.13 3.42,16.7 5.65,18.4L5.71,22L9.16,20.12L9.13,20.11C10.04,20.36 11,20.5 12,20.5C17.5,20.5 22,16.36 22,11.25C22,6.14 17.5,2 12,2M13.03,14.41L10.54,11.78L5.5,14.41L10.88,8.78L13.46,11.25L18.31,8.78L13.03,14.41Z" />
+</svg>
+<div class="popover">
+<p>Hello, how may we help you? Just send us a message now to get assistance.</p>
+</div>
+</div>
+<div id="modal1" class="overlay">
+			<a class="cancel" href="javascript:void(0)" onclick="hideDiv()"></a>
+			<div class="modal">
+<iframe src="https://cdn.rawgit.com/KompiAjaib/kompi-html/master/fb_pageplugin.html?page=kompiajaib" frameborder="0" scrolling="no" width="300" height="330">
+</iframe>
+			</div>
+		</div>
+
+<script>
+function showDiv() {
+   document.getElementById('modal1').style.display = "block";
+}
+function hideDiv() {
+   document.getElementById('modal1').style.display = "none";
+}
+</script>
+</body>
+</html>
