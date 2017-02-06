@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Show Div OnScroll With LazySize.js</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+body {
+  padding: 0 0 60px;
+}
+
+.video-box {
+  margin-top: 2000px
+}
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto
+}
+.fixed {
+  position: relative;
+  margin-top: 1000px;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+}
+.fixed.lazyloaded {
+  position: fixed;
+  animation: totop 1s;
+  -moz-animation: totop 1s;
+  -webkit-animation: totop 1s
+}
+.fixed-content {
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-bottom: none;
+}
+.fixed h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0 10px 10px;
+}
+.fixed label {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 18px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  z-index: 9999
+}
+.fixed input {
+  position: absolute;
+  right: -999em;
+  opacity: 0
+}
+.fixed input[type=checkbox]:checked+div {
+  position: fixed;
+  bottom: 0;
+  left: -500px;
+  animation: toleft 1s;
+  -moz-animation: toleft 1s;
+  -webkit-animation: toleft 1s
+}
+@keyframes toleft {
+  from {
+    left: 0
+  }
+  to {
+    left: -500px;
+  }
+}
+@-moz-keyframes toleft {
+  from {
+    left: 0
+  }
+  to {
+    left: -500px;
+  }
+}
+@-webkit-keyframes toleft {
+  from {
+    left: 0
+  }
+  to {
+    left: -500px;
+  }
+}
+@keyframes totop {
+  from {
+    bottom: -500px
+  }
+  to {
+    bottom: 0;
+  }
+}
+@-moz-keyframes totop {
+  from {
+    bottom: -500px
+  }
+  to {
+    bottom: 0;
+  }
+}
+@-webkit-keyframes totop {
+  from {
+    bottom: -500px
+  }
+  to {
+    bottom: 0;
+  }
+}
+  </style>
+  </head>
+  <body>
+   <h1 class="text-center"><strong>Show Div OnScroll With LazySize.js</strong></h1>
+    <h2 class="text-center">by <a href="http://www.kompiajaib.com/" title="Kompi Ajaib">Kompi Ajaib</a></h2>
+        <div class="container">
+        <div class="row">
+          <h3><a class="btn btn-default btn-sm" href="http://www.kompiajaib.com/2017/02/show-div-onscroll-with-lazysizejs.html" title="Back to article">Back to article</a></h3>
+          </div>
+          </div>
+    <hr>
+            <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <h4 class="text-center">Scroll down to see floating div on left side.</h4>
+          <br/>
+          <br/>
+          <p><img src="https://i.ytimg.com/vi/vUQkLrEjpm0/maxresdefault.jpg"></p>
+          </div>
+          </div>
+          </div>
+          <div class="container fixed-box">
+        <div class="row">
+<div class="fixed lazyload">
+<label for='item-1'>&times;</label>
+<input id='item-1' name='one' type='checkbox'/>
+<div class="fixed-content">
+<h2><span>Widget Fixed</span></h2>
+<div>
+<img src="https://i.ytimg.com/vi/vUQkLrEjpm0/maxresdefault.jpg" width="300" height="120">
+</div>
+</div>
+</div>
+</div>
+</div>
+    <div class="container video-box">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<img src="https://i.ytimg.com/vi/vUQkLrEjpm0/maxresdefault.jpg">
+
+<br/>
+<br/>
+<br/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vUQkLrEjpm0" frameborder="0" allowfullscreen></iframe>
+               
+            </div>
+        </div>
+    </div>
+   
+<script async='async' src='https://cdn.rawgit.com/aFarkas/lazysizes/gh-pages/lazysizes.min.js' type='text/javascript'></script>
+<script>
+for(var imgEl=document.getElementsByTagName("img"),i=0;i<imgEl.length;i++)imgEl[i].getAttribute("src")&&(imgEl[i].setAttribute("data-src",imgEl[i].getAttribute("src")),imgEl[i].className+=" lazyload",imgEl[i].setAttribute("src","data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="));
+
+function wrap(top, selector, bottom) {
+var videos = document.querySelectorAll(selector);
+    for (var i = 0; i < videos.length; i++) {
+        if (videos[i].getAttribute('src')) {
+            videos[i].setAttribute('data-src', videos[i].getAttribute('src'));
+            videos[i].removeAttribute('src');
+        }
+        videos[i].setAttribute("class","lazyload");
+        videos[i].setAttribute("style", "position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: 0px;");
+        var modified = top + videos[i].outerHTML + bottom;
+        videos[i].outerHTML = modified;
+    }
+}
+wrap("<div style='position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0 auto;width:100%'>", "iframe[src*='youtube.com']", "</div>");
+</script>
+  </body>
+</html>
