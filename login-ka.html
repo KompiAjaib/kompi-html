@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset='utf-8'/>
+<meta content='width=device-width,minimum-scale=1,initial-scale=1' name='viewport'/>
+<meta content='IE=9; IE=8; IE=7; IE=EDGE; chrome=1' http-equiv='X-UA-Compatible'/>
+<meta content='992990803091-d9aju9t5tl354uo0sd399lkmr2u2kliu.apps.googleusercontent.com' name='google-signin-client_id'/>
+<title>Login Kompi Ajaib</title>
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,300i,500,500i,700,900' rel='stylesheet' type='text/css'/>
+<style type='text/css'>
+body{background:#009688;color:#efefef;font-family:Roboto,Arial,sans-serif;font-size:100%;text-align:left;margin:0}
+#loginblog .btn-info{margin:0 0 0 20px;}
+.blog-admin a.btn-danger{margin: 0 0px 0 20px;z-index: 2;position: absolute;top: 4px;right: 0;}
+.post #innerlogin,.blog-admin{display:none}
+#innerlogin{display:inline-block;}
+a.btn-danger,a.btn-info,a.btn-primary,a.btn-success,a.btn-warning{color:#fff!important}
+.btn,.btn:active{background-image:none}
+.btn{font-weight:400}
+.btn{display:inline-block;padding:6px 12px;margin-bottom:5px;font-size:14px;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid transparent;border-radius:4px}
+.btn:active:focus,.btn:focus{outline:0}
+.btn:focus,.btn:hover{color:#333;text-decoration:none;outline:0}
+.btn:active{outline:0;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}
+.btn-info{color:#fff!important;background-color:#5bc0de;border-color:#46b8da}
+.btn-info:focus{color:#fff;background-color:#31b0d5;border-color:#1b6d85}
+.btn-info:active,.btn-info:hover{color:#fff;background-color:#31b0d5;border-color:#269abc}
+.btn-danger{color:#fff!important;background-color:#d9534f;border-color:#d43f3a}
+.btn-danger:focus{color:#fff;background-color:#c9302c;border-color:#761c19}
+.btn-danger:active,.btn-danger:hover{color:#fff;background-color:#c9302c;border-color:#ac2925}
+.btn-xs{font-size:12px;line-height:1.5;border-radius:3px;padding:1px 5px}
+#gSignIn,#gSignIn&gt;div{margin:0 auto}
+#gSignIn{width:100%}
+.log_in .profile{background:#fff;border:1px solid #ccc;border-color:rgba(0,0,0,.2);color:#000;-webkit-box-shadow:0 2px 10px rgba(0,0,0,.2);box-shadow:0 2px 10px rgba(0,0,0,.2);outline:0;overflow:hidden;-webkit-border-radius:2px;border-radius:2px;padding:10px;margin:10px auto 0;width:350px;height:auto;text-align:left}
+.log_in .profile p{margin:0}
+.log_in .profile p.button_login{margin:10px 0 0}
+.log_in .head{margin-bottom:10px}
+.log_in .head a{float:right}
+.log_in .profile img{width:100px;float:left;margin:0 10px 10px 0}
+.log_in .proDetails{float:left}
+.log_in h3{margin:0}
+.login_box{}
+.log_in{width:100%;}
+.log_in .tombol_close{color:#efefef;position:absolute;top:10px;right:10px;font-family:Arial;font-size:40px;font-weight:lighter;width:20px;height:20px;line-height:20px;text-align:center;text-decoration:none;}
+
+@media screen and (max-width:960px){
+.log_in{width:80%;margin-left:-40%;}
+}
+@media screen and (max-width:414px){
+.log_in .profile{width:100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.log_in .proDetails{font-size:12px!important;line-height:1.1}
+.log_in .profile img{width:60px;}
+}
+@media screen and (max-width:375px){
+.abcRioButton{width:100%!important;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.abcRioButtonContents{font-size:14px!important}
+.log_in .profile img{width:40px;}
+.log_in{padding:10px;}
+}
+@media screen and (max-width:320px){
+.log_in img.logo{width:100%;height:auto;}
+.log_in .proDetails{font-size:10px!important;line-height:1.1}
+}
+</style>
+</head>
+
+<body>
+<div class="login_box">
+<div class="log_in">
+<div style="text-align: center;">
+<img alt="Logo" class="logo" src="https://2.bp.blogspot.com/-ktc6J2yugU8/WJAh_2G3r3I/AAAAAAAApUs/KTDlxOYaWkAohxisZqHAjVhzywFpmsOlQCLcB/s212/kompimales6.png" />
+  <br />
+<h3>
+Login Author Blog</h3>
+<br />
+<!-- HTML for render Google Sign-In button -->
+                <br />
+<div id="gSignIn">
+</div>
+<!-- HTML for displaying user details -->
+                <br />
+<div class="userContent">
+</div>
+</div>
+<a class="tombol_close" href="http://www.kompiajaib.com/" title="Homepage">×</a>
+</div>
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' type='text/javascript'></script>
+<script async="" defer="" src="https://apis.google.com/js/platform.js"></script>
+<script async="" defer="" src="https://apis.google.com/js/client:platform.js?onload=renderButton"></script>
+<script>
+//<![CDATA[
+ function onSuccess(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    gapi.client.load('plus', 'v1', function () {
+        var request = gapi.client.plus.people.get({
+            'userId': 'me'
+        });
+        //Display the user details
+        request.execute(function (resp) {
+            var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a class="btn btn-danger btn-xs" href="https://kompimalesv6.blogspot.com/logout?d=https://draft.blogger.com/logout-redirect.g?blogID%3D5530183827060067504" onclick="signOut();">Sign out</a></div>';
+            profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>Name: '+resp.displayName+'</p><p>Email: '+resp.emails[0].value+'</p><p>Gender: '+resp.gender+'</p><p class="button_login"><a class="btn btn-info btn-xs" href="https://draft.blogger.com/blogger.g?blogID=5530183827060067504" target="_blank">Dashboard</a> <a class="btn btn-info btn-xs" href="https://draft.blogger.com/blogger.g?blogID=5530183827060067504#editor" target="_blank">New Post</a><br/><a class="btn btn-info btn-xs" href="'+resp.url+'">View Google+ Profile</a></p></div><div class="clear"></div></div>';
+            $('.userContent').html(profileHTML);
+            $('#gSignIn').slideUp('slow');
+        });
+    });
+}
+function onFailure(error) {
+    alert(error);
+}
+function renderButton() {
+    gapi.signin2.render('gSignIn', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+    });
+}
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        $('.userContent').html('');
+        $('#gSignIn').slideDown('slow');
+    });
+}
+//]]>
+</script>
+</body>
+</html>
