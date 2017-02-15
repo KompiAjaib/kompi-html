@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset='utf-8'/>
 <meta content='width=device-width,minimum-scale=1,initial-scale=1' name='viewport'/>
@@ -97,8 +97,8 @@ Login Author Blog</h3>
         });
         //Display the user details
         request.execute(function (resp) {
-            var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a class="btn btn-danger btn-xs" href="https://kompimalesv6.blogspot.com/logout?d=https://draft.blogger.com/logout-redirect.g?blogID%3D5530183827060067504" onclick="signOut();">Sign out</a></div>';
-            profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>Name: '+resp.displayName+'</p><p>Email: '+resp.emails[0].value+'</p><p>Gender: '+resp.gender+'</p><p class="button_login"><a class="btn btn-info btn-xs" href="https://draft.blogger.com/blogger.g?blogID=5530183827060067504" target="_blank">Dashboard</a> <a class="btn btn-info btn-xs" href="https://draft.blogger.com/blogger.g?blogID=5530183827060067504#editor" target="_blank">New Post</a><br/><a class="btn btn-info btn-xs" href="'+resp.url+'">View Google+ Profile</a></p></div><div class="clear"></div></div>';
+            var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a class="btn btn-danger btn-xs" href="http://www.kompiajaib.com/logout?d=https://draft.blogger.com/logout-redirect.g?blogID%3D2583045784323695327" onclick="signOut();">Sign out</a></div>';
+            profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>Name: '+resp.displayName+'</p><p>Email: '+resp.emails[0].value+'</p><p>Gender: '+resp.gender+'</p><p class="button_login"><a class="btn btn-info btn-xs" href="https://draft.blogger.com/blogger.g?blogID=2583045784323695327" target="_blank">Dashboard</a> <a class="btn btn-info btn-xs" href="https://draft.blogger.com/blogger.g?blogID=2583045784323695327#editor" target="_blank">New Post</a><br/><a class="btn btn-info btn-xs" href="'+resp.url+'">View Google+ Profile</a></p></div><div class="clear"></div></div>';
             $('.userContent').html(profileHTML);
             $('#gSignIn').slideUp('slow');
         });
