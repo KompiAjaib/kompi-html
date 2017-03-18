@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+@font-face {font-family: 'Oswald';font-style: normal;font-weight: 400;src: local('Oswald Regular'), local('Oswald-Regular'), url(https://themes.googleusercontent.com/static/fonts/oswald/v8/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');}
+
+#text-box{
+    width:50%;
+    background:#ddd;
+    border:1px solid #bbb;
+    padding:8px;
+    margin:30px auto 0;
+    text-align:center;
+}
+#text{
+    width:99%;
+    height:200px;
+}
+#text:focus{
+    outline:none;
+}
+#count{
+    text-align:center;
+    font:20px Oswald;
+    background:#fff;
+    color:#555;
+    border:1px solid #aaa;
+    display:block;
+    padding:2px 0;
+    margin:3px auto 0;
+}
+.judul{
+    text-align:center;
+    font:24px Oswald;
+    color:#555;
+    padding:0;
+    margin-bottom:8px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="text-box">
+<div class="judul">Character Count Tool</div>
+<textarea id="text" placeholder="Paste Character Here"></textarea>
+<div id="count">Count: 0 Character</div>
+</div>
+<script>
+$(document).ready(function(){
+ $(function() {
+    window.charCount = 0;
+    setInterval(function() {
+       var cc = charCount($('#text').val())
+       if(cc != window.charCount) {
+         window.charCount = cc;
+         $("#count").html("Count: " + window.charCount + " Characters"); 
+       }
+     }, 500);
+ });
+
+ function charCount(str) {
+  if (str === "")
+   return 0;
+   
+  return $.trim(str).length
+ }
+});
+</script>
+</body>
+</html>
