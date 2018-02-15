@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Random Posts</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style>
+body {
+  background-color:transparent;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v16/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'), url(https://fonts.gstatic.com/s/roboto/v16/RxZJdnzeo3R5zSexge8UUT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff'),url(https://fonts.gstatic.com/s/roboto/v16/RxZJdnzeo3R5zSexge8UUSZ2oysoEQEeKwjgmXLRnTc.ttf) format('truetype');
+}
+#recent-posts{
+    width:auto;
+    padding:0;
+    margin:0;
+	font-family: Roboto, sans-serif;
+    font-weight:500;
+}
+#recent-posts ul,#recent-posts li {
+    list-style:none;
+}
+#recent-posts a{
+    text-decoration:none;
+	line-height: 1.2em;
+    font-size: 12px;
+	margin: 0;
+    padding: 0 5px;
+    overflow: hidden;
+	display:block;
+	color:#333;
+	text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+#recent-posts a:hover{
+	color:#FF1744;
+}
+#recent-posts li{
+	display:inline-block;
+    margin: 5px 0;
+	padding: 5px 0;
+	background: #efefef;
+    border-left: 3px solid #FF1744;
+}
+#recent-posts li:first-child{
+	margin: 0 0 5px;
+}
+#recent-posts li:last-child{
+	margin: 5px 0 0;
+}
+</style>
+</head>
+<body>
+<script>
+function getQueryVariable(variable) {
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) {
+		var pair = vars[i].split("=");
+		if(pair[0] == variable){return pair[1];}
+	}
+	return(false);
+}
+var domain = getQueryVariable("url");
+var jumlah = getQueryVariable("post");
+function showlatestposts(json){document.write('<ul id="recent-posts">');for(var i=0;i<jumlah;i++){var entry=json.feed.entry[i];var posttitle=entry.title.$t;var postsurl;if(i==json.feed.entry.length)break;for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){postsurl=entry.link[k].href;break;}}
+document.write('<li class="recent-posts">');document.write('<a href="'+ postsurl+'" target ="_top" title="'+ posttitle+'">'+ posttitle+'</a>');document.write('</li>');}
+document.write('</ul>');};
+document.write("<scr" + "ipt type=\"text/javascript\" src=\""+domain+"/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestposts\"></scr" + "ipt>");
+</script>
+</body>
+</html>
