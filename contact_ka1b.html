@@ -280,7 +280,7 @@ svg:not(:root){overflow:hidden}
 .thanks_message,.thanks_message .close a{position:absolute;text-align:center;background:#fff;color:#333;font-family:Helvetica,Arial,sans-serif}
 .thanks_message{width:50%;border-radius:5px;padding:20px;border:1px solid #DEDEDE;top:10%;left:50%;margin-left:-25%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 .thanks_message .close a{top:-15px;right:-15px;width:20px;height:20px;line-height:20px;border:1px solid #ccc;border-radius:100%;font-size:18px;text-decoration:none}
-@media screen and (max-width:768px){.thanks_message{width:90%!important;margin-left:-45%!important}
+@media screen and (max-width:768px){.thanks_message{width:90%;margin-left:-45%}
 }
 @media screen and (max-width:414px){#ss-form .styled-input{width:100%}
 }
@@ -387,7 +387,34 @@ amp-sidebar{width:300px}
 <script async='async' custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
 <!--<b:if cond='data:blog.pageType != &quot;static_page&quot; and data:blog.isMobileRequest == &quot;true&quot; and data:blog.pageType != &quot;error_page&quot;'> <script async='async' custom-element='amp-sticky-ad' src='https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'/> </b:if>
 <script async='async' custom-element='amp-iframe' src='https://cdn.ampproject.org/v0/amp-iframe-0.1.js'></script>-->
-
+<script>
+var submitted=false;
+var fadeEffect=function(){
+ return{
+  init:function(id, flag, target){
+   this.elem = document.getElementById(id);
+   clearInterval(this.elem.si);
+   this.target = target ? target : flag ? 100 : 0;
+   this.flag = flag || -1;
+   this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
+   this.elem.si = setInterval(function(){fadeEffect.tween()}, 20);
+  },
+  tween:function(){
+   if(this.alpha == this.target){
+    clearInterval(this.elem.si);
+   }else{
+    var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
+    this.elem.style.opacity = value / 100;
+    this.elem.style.filter = 'alpha(opacity=' + value + ')';
+    this.alpha = value
+   }
+  }
+ }
+}();
+function myFunction() {
+    location.reload();
+}
+</script>
 </head>
 <body class='m0 fontroboto' itemscope='itemscope' itemtype='http://schema.org/WebPage'>
 <amp-analytics id='analytics1' type='googleanalytics'>
@@ -590,7 +617,7 @@ Untuk menghubungi admin Kompi Ajaib, silahkan pilih beberapa cara yang Anda suka
 <br/>
 Atau silahkan hubungi via contact form di bawah ini:<br />
 <div class="contact-box">
-<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" style="display: none;"></iframe>
+<noscript><iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" hidden></iframe></noscript>
             <form action="https://docs.google.com/forms/d/1aHcEFAqx-IpAPnWhCknh_9MHdEj1CkbTaofEF9F3ATc/formResponse" id="ss-form" method="POST" onsubmit="fadeEffect.init('fade', 1);document.getElementById('fade').style.display = 'block'" target="hidden_iframe">
 					<div class="styled-input">
                         <div class="styled-input-in">
@@ -630,34 +657,7 @@ Atau silahkan hubungi via contact form di bawah ini:<br />
 </div>
 </div>
 </div>
-<script>
-var submitted=false;
-var fadeEffect=function(){
- return{
-  init:function(id, flag, target){
-   this.elem = document.getElementById(id);
-   clearInterval(this.elem.si);
-   this.target = target ? target : flag ? 100 : 0;
-   this.flag = flag || -1;
-   this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
-   this.elem.si = setInterval(function(){fadeEffect.tween()}, 20);
-  },
-  tween:function(){
-   if(this.alpha == this.target){
-    clearInterval(this.elem.si);
-   }else{
-    var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
-    this.elem.style.opacity = value / 100;
-    this.elem.style.filter = 'alpha(opacity=' + value + ')';
-    this.alpha = value
-   }
-  }
- }
-}();
-function myFunction() {
-    location.reload();
-}
-</script>
+
 <div class='clear'></div>
 </div>
 <div class='clear'></div>
