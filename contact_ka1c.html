@@ -387,34 +387,7 @@ amp-sidebar{width:300px}
 <script async='async' custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
 <!--<b:if cond='data:blog.pageType != &quot;static_page&quot; and data:blog.isMobileRequest == &quot;true&quot; and data:blog.pageType != &quot;error_page&quot;'> <script async='async' custom-element='amp-sticky-ad' src='https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'/> </b:if>
 <script async='async' custom-element='amp-iframe' src='https://cdn.ampproject.org/v0/amp-iframe-0.1.js'></script>-->
-<script>
-var submitted=false;
-var fadeEffect=function(){
- return{
-  init:function(id, flag, target){
-   this.elem = document.getElementById(id);
-   clearInterval(this.elem.si);
-   this.target = target ? target : flag ? 100 : 0;
-   this.flag = flag || -1;
-   this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
-   this.elem.si = setInterval(function(){fadeEffect.tween()}, 20);
-  },
-  tween:function(){
-   if(this.alpha == this.target){
-    clearInterval(this.elem.si);
-   }else{
-    var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
-    this.elem.style.opacity = value / 100;
-    this.elem.style.filter = 'alpha(opacity=' + value + ')';
-    this.alpha = value
-   }
-  }
- }
-}();
-function myFunction() {
-    location.reload();
-}
-</script>
+
 </head>
 <body class='m0 fontroboto' itemscope='itemscope' itemtype='http://schema.org/WebPage'>
 <amp-analytics id='analytics1' type='googleanalytics'>
@@ -617,25 +590,25 @@ Untuk menghubungi admin Kompi Ajaib, silahkan pilih beberapa cara yang Anda suka
 <br/>
 Atau silahkan hubungi via contact form di bawah ini:<br />
 <div class="contact-box">
-<noscript><iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" hidden></iframe></noscript>
-            <form action="https://docs.google.com/forms/d/1aHcEFAqx-IpAPnWhCknh_9MHdEj1CkbTaofEF9F3ATc/formResponse" id="ss-form" method="POST" onsubmit="fadeEffect.init('fade', 1);document.getElementById('fade').style.display = 'block'" target="hidden_iframe">
+<iframe name="iframe_uexxnchh" id="iframe_uexxnchh" onload="if(typeof sent_uexxnchh!='undefined'){window.location='https://www.kompiajaib.com/p/thank-you.html';}" hidden></iframe>
+			<form action="https://docs.google.com/forms/d/1aHcEFAqx-IpAPnWhCknh_9MHdEj1CkbTaofEF9F3ATc/formResponse" method="POST" id="ss-form" target="iframe_uexxnchh" onsubmit="sent_uexxnchh=true">
 					<div class="styled-input">
                         <div class="styled-input-in">
-								<input type="text" aria-label="Name" name="entry.2005620554" value="" id="entry.2005620554" dir="auto" title="" required="required">
+								<input type="text" aria-label="Name" name="entry.2005620554" value="" id="entry.2005620554" dir="auto" title="" required>
                                 <label>Name</label>
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
 					</div>
 					<div class="styled-input">
                         <div class="styled-input-in">
-								<input type="email" aria-label="Email" name="entry.1045781291" value="" id="entry.1045781291" dir="auto" title="Must be a valid email address" required="required">
+								<input type="email" aria-label="Email" name="entry.1045781291" value="" id="entry.1045781291" dir="auto" title="Must be a valid email address" required>
                                 <label>Email</label>
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
 					</div>
 					<div class="styled-input wide">
                         <div class="styled-input-in">
-								<textarea aria-label="Comments" name="entry.839337160" rows="8" cols="0" id="entry.839337160" dir="auto" aria-required="true" required="required"></textarea>
+								<textarea aria-label="Comments" name="entry.839337160" rows="8" cols="0" id="entry.839337160" dir="auto" aria-required="true" required></textarea>
                                 <label>Message</label>
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
@@ -646,18 +619,8 @@ Atau silahkan hubungi via contact form di bawah ini:<br />
 					<button type="submit" name="submit" class="btn btn-default">Send</button>
 					</div>
 			</form>
-            <div id="fade">
-<div class="thanks_layout">
-<div class="thanks_message">
-<amp-img alt="Thumb" height="48" width="48" src="https://4.bp.blogspot.com/-rY5km74yj_I/V1ItqrbspBI/AAAAAAAAmxA/SK-aLPTjyuo8uiSYylRJ4tLslk2LJ581QCLcB/s1600/ic_thumb_up_black_24dp_2x.png"></amp-img>
-        <h2>Form submitted successfully</h2>
-        <div>Jika tidak ada halangan dan kesibukan lainnya, admin akan langsung merespon pesan yang Anda kirimkan.</div>
-        <div class="close"><a href="javascript:void(0)" onclick="document.getElementById('fade').style.display = 'none' ;myFunction()" title="Close">&times;</a></div>
 </div>
-</div>
-</div>
-</div>
-
+	
 <div class='clear'></div>
 </div>
 <div class='clear'></div>
