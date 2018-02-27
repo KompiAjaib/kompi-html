@@ -568,9 +568,36 @@ amp-sidebar{width:300px}
 </style>
 <style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 <script async='async' src='https://cdn.ampproject.org/v0.js'></script>
-<script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>
+<!--<script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>-->
 <script async='async' custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
-
+<script>
+var submitted=false;
+var fadeEffect=function(){
+ return{
+  init:function(id, flag, target){
+   this.elem = document.getElementById(id);
+   clearInterval(this.elem.si);
+   this.target = target ? target : flag ? 100 : 0;
+   this.flag = flag || -1;
+   this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
+   this.elem.si = setInterval(function(){fadeEffect.tween()}, 20);
+  },
+  tween:function(){
+   if(this.alpha == this.target){
+    clearInterval(this.elem.si);
+   }else{
+    var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
+    this.elem.style.opacity = value / 100;
+    this.elem.style.filter = 'alpha(opacity=' + value + ')';
+    this.alpha = value
+   }
+  }
+ }
+}();
+function myFunction() {
+    location.reload();
+}
+</script>
 </head>
 <body class='m0 fontroboto' itemscope='itemscope' itemtype='http://schema.org/WebPage'>
 <a aria-label='Skip' class='skip-navigation' href='#main' role='button' tabindex='0'>
@@ -718,35 +745,9 @@ Untuk menghubungi admin Kompi Ajaib, silahkan pilih beberapa cara yang Anda suka
 <div class="contact-me"><svg viewBox="0 0 24 24">
 <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"></path>
 </svg><span><a href="mailto:kompiajaib@gmail.com" target="_blank" title="Klik untuk kirim email">Klik untuk kirim email</a></span></div>
-<!-- <div class="contact-me"><svg viewBox="0 0 24 24">
-<path d="M16.75,13.96C17,14.09 17.16,14.16 17.21,14.26C17.27,14.37 17.25,14.87 17,15.44C16.8,16 15.76,16.54 15.3,16.56C14.84,16.58 14.83,16.92 12.34,15.83C9.85,14.74 8.35,12.08 8.23,11.91C8.11,11.74 7.27,10.53 7.31,9.3C7.36,8.08 8,7.5 8.26,7.26C8.5,7 8.77,6.97 8.94,7H9.41C9.56,7 9.77,6.94 9.96,7.45L10.65,9.32C10.71,9.45 10.75,9.6 10.66,9.76L10.39,10.17L10,10.59C9.88,10.71 9.74,10.84 9.88,11.09C10,11.35 10.5,12.18 11.2,12.87C12.11,13.75 12.91,14.04 13.15,14.17C13.39,14.31 13.54,14.29 13.69,14.13L14.5,13.19C14.69,12.94 14.85,13 15.08,13.08L16.75,13.96M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C10.03,22 8.2,21.43 6.65,20.45L2,22L3.55,17.35C2.57,15.8 2,13.97 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12C4,13.72 4.54,15.31 5.46,16.61L4.5,19.5L7.39,18.54C8.69,19.46 10.28,20 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"></path>
-</svg><span><a href="https://api.whatsapp.com/send?phone=6281312815000" title="Chat WA">Click here to direct chat WA</a></span></div> -->
 <div class="contact-me"><svg viewBox="0 0 24 24">
 <path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"></path>
 </svg><span><a href="https://t.me/adhy_suryadi" target="_blank" title="Klik untuk chat di Telegram">Klik untuk chat di Telegram</a></span></div>
-<!-- <div class="contact-me bbm"><svg viewBox="0 0 24 24">
-<path d="M21.499,1.114H2.501C1.12,1.114,0,2.234,0,3.615v12.509c0,1.381,1.12,2.501,2.501,2.501h0.137l-1.974,4.261l8.248-4.261
- h12.586c1.381,0,2.501-1.12,2.501-2.501V3.615C24,2.234,22.88,1.114,21.499,1.114z M6.512,4.085h2.203
- c0.711,0,1.293,0.581,1.293,1.293c0,0.711-0.582,1.293-1.293,1.293H5.462L6.512,4.085z M7.038,10.804h-3.25l1.048-2.586h2.202
- c0.711,0,1.293,0.582,1.293,1.293C8.331,10.223,7.749,10.804,7.038,10.804z M11.269,14.938h-3.25l1.049-2.586h2.201
- c0.712,0,1.295,0.582,1.295,1.293C12.564,14.356,11.981,14.938,11.269,14.938z M12.945,10.804H9.694l1.049-2.586h2.202
- c0.711,0,1.293,0.582,1.293,1.293C14.238,10.223,13.657,10.804,12.945,10.804z M11.37,6.671l1.048-2.586h2.202
- c0.711,0,1.293,0.581,1.293,1.293c0,0.711-0.582,1.293-1.293,1.293H11.37z M18.026,12.844h-3.252l1.049-2.586h2.203
- c0.711,0,1.293,0.582,1.293,1.294C19.319,12.262,18.737,12.844,18.026,12.844z M19.701,8.711h-3.25l1.048-2.586h2.203
- c0.711,0,1.292,0.581,1.292,1.292C20.994,8.129,20.413,8.711,19.701,8.711z"></path>
-</svg> <a href='bbmi://5895811C' target='_blank'><span>5895811C (Click to invite)</span></a>
-<amp-accordion>
-    <section>
-    <h5>
-<span class='show-more'><span>atau scan barcode</span> [open]</span>
-<span class='show-less'>sembunyikan barcode</span>
-</h5>
-  <span class='barcode-bbm'>
-<amp-img alt='barcode bbm' height="300" src="https://1.bp.blogspot.com/-ZXpfEGeVeKo/WDKQgEDqhDI/AAAAAAAAoqg/8LpZKY-remAKheS0Q3k7qE-zcKQc3alygCLcB/s1600/5895811c.jpg" width="300" layout="responsive"></amp-img>
-  </span>
-</section>
-  </amp-accordion>
-</div> -->
 <div class="contact-me"><svg viewBox="0 0 24 24">
 <path fill="#000000" d="M12,2C6.5,2 2,6.14 2,11.25C2,14.13 3.42,16.7 5.65,18.4L5.71,22L9.16,20.12L9.13,20.11C10.04,20.36 11,20.5 12,20.5C17.5,20.5 22,16.36 22,11.25C22,6.14 17.5,2 12,2M13.03,14.41L10.54,11.78L5.5,14.41L10.88,8.78L13.46,11.25L18.31,8.78L13.03,14.41Z" />
 </svg><a href="http://m.me/adhysuryadiii" target="_blank" title="Klik untuk chat di Messenger">Klik untuk chat di Messenger</a></div>
@@ -788,7 +789,7 @@ Atau silahkan hubungi via contact form di bawah ini:<br />
             <div id="fade">
 <div class="thanks_layout">
 <div class="thanks_message">
-<img alt="Thumb" height="48" width="48" src="https://4.bp.blogspot.com/-rY5km74yj_I/V1ItqrbspBI/AAAAAAAAmxA/SK-aLPTjyuo8uiSYylRJ4tLslk2LJ581QCLcB/s1600/ic_thumb_up_black_24dp_2x.png">
+<amp-img alt="Thumb" height="48" width="48" src="https://4.bp.blogspot.com/-rY5km74yj_I/V1ItqrbspBI/AAAAAAAAmxA/SK-aLPTjyuo8uiSYylRJ4tLslk2LJ581QCLcB/s1600/ic_thumb_up_black_24dp_2x.png"></amp-img>
         <h2>Form submitted successfully</h2>
         <div>Jika tidak ada halangan dan kesibukan lainnya, admin akan langsung merespon pesan yang Anda kirimkan.</div>
         <div class="close"><a href="javascript:void(0)" onclick="document.getElementById('fade').style.display = 'none' ;myFunction()" title="Close">×</a></div>
