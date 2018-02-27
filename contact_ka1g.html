@@ -88,7 +88,6 @@ a:hover,a,abbr[title]{text-decoration:none}
 .post-body h3{font-size:32px}
 .post-body h4,.post-body h5,.post-body h6{font-size:30px}
 .post-body a:hover{color:#000}
-.post-body img{width:100%;height:auto}
 .post-body .share-box{position:relative;margin-top:20px;}
 .post-body amp-carousel,.post-body amp-facebook,.post-body amp-iframe[src*='youtube.com'],.post-body amp-youtube{margin:0 0 0 -80px}
 .post-body amp-img.emojika{vertical-align:-12%}
@@ -570,34 +569,7 @@ amp-sidebar{width:300px}
 <script async='async' src='https://cdn.ampproject.org/v0.js'></script>
 <!--<script async='async' custom-element='amp-form' src='https://cdn.ampproject.org/v0/amp-form-0.1.js'></script>-->
 <script async='async' custom-element='amp-sidebar' src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'></script>
-<script>
-var submitted=false;
-var fadeEffect=function(){
- return{
-  init:function(id, flag, target){
-   this.elem = document.getElementById(id);
-   clearInterval(this.elem.si);
-   this.target = target ? target : flag ? 100 : 0;
-   this.flag = flag || -1;
-   this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
-   this.elem.si = setInterval(function(){fadeEffect.tween()}, 20);
-  },
-  tween:function(){
-   if(this.alpha == this.target){
-    clearInterval(this.elem.si);
-   }else{
-    var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
-    this.elem.style.opacity = value / 100;
-    this.elem.style.filter = 'alpha(opacity=' + value + ')';
-    this.alpha = value
-   }
-  }
- }
-}();
-function myFunction() {
-    location.reload();
-}
-</script>
+
 </head>
 <body class='m0 fontroboto' itemscope='itemscope' itemtype='http://schema.org/WebPage'>
 <a aria-label='Skip' class='skip-navigation' href='#main' role='button' tabindex='0'>
@@ -757,18 +729,18 @@ Untuk menghubungi admin Kompi Ajaib, silahkan pilih beberapa cara yang Anda suka
 </div>
 <br/>
 Atau silahkan hubungi via contact form di bawah ini:<br />
-<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" style="display: none;"></iframe>
+<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" hidden=""></iframe>
             <form action="https://docs.google.com/forms/d/1aHcEFAqx-IpAPnWhCknh_9MHdEj1CkbTaofEF9F3ATc/formResponse" id="ss-form" method="POST" onsubmit="fadeEffect.init('fade', 1);document.getElementById('fade').style.display = 'block'" target="hidden_iframe">
 					<div class="styled-input">
                         <div class="styled-input-in">
-								<input type="text" aria-label="Name" name="entry.2005620554" value="" id="entry.2005620554" dir="auto" title="" required="required">
+								<input type="text" aria-label="Name" name="entry.2005620554" value="" id="entry.2005620554" dir="auto" title="" required="required"/>
                                 <label>Name</label>
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
 					</div>
 					<div class="styled-input">
                         <div class="styled-input-in">
-								<input type="email" aria-label="Email" name="entry.1045781291" value="" id="entry.1045781291" dir="auto" title="Must be a valid email address" required="required">
+								<input type="email" aria-label="Email" name="entry.1045781291" value="" id="entry.1045781291" dir="auto" title="Must be a valid email address" required="required"/>
                                 <label>Email</label>
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
@@ -780,23 +752,50 @@ Atau silahkan hubungi via contact form di bawah ini:<br />
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
 					</div>
-					<input name="draftResponse" type="hidden" value="[,,&quot;666676987482120412&quot;]">
-                    <input name="pageHistory" type="hidden" value="0">
-                    <input name="fbzx" type="hidden" value="666676987482120412">
+					<input name="draftResponse" type="hidden" value="[,,&quot;666676987482120412&quot;]"/>
+                    <input name="pageHistory" type="hidden" value="0"/>
+                    <input name="fbzx" type="hidden" value="666676987482120412"/>
 					<button type="submit" name="submit" class="btn btn-default">Send</button>
 					
 			</form>
             <div id="fade">
 <div class="thanks_layout">
 <div class="thanks_message">
-<amp-img alt="Thumb" height="48" width="48" src="https://4.bp.blogspot.com/-rY5km74yj_I/V1ItqrbspBI/AAAAAAAAmxA/SK-aLPTjyuo8uiSYylRJ4tLslk2LJ581QCLcB/s1600/ic_thumb_up_black_24dp_2x.png"></amp-img>
+<img alt="Thumb" height="48" width="48" src="https://4.bp.blogspot.com/-rY5km74yj_I/V1ItqrbspBI/AAAAAAAAmxA/SK-aLPTjyuo8uiSYylRJ4tLslk2LJ581QCLcB/s1600/ic_thumb_up_black_24dp_2x.png" />
         <h2>Form submitted successfully</h2>
         <div>Jika tidak ada halangan dan kesibukan lainnya, admin akan langsung merespon pesan yang Anda kirimkan.</div>
         <div class="close"><a href="javascript:void(0)" onclick="document.getElementById('fade').style.display = 'none' ;myFunction()" title="Close">×</a></div>
 </div>
 </div>
 </div>
-
+<script>
+var submitted=false;
+var fadeEffect=function(){
+ return{
+  init:function(id, flag, target){
+   this.elem = document.getElementById(id);
+   clearInterval(this.elem.si);
+   this.target = target ? target : flag ? 100 : 0;
+   this.flag = flag || -1;
+   this.alpha = this.elem.style.opacity ? parseFloat(this.elem.style.opacity) * 100 : 0;
+   this.elem.si = setInterval(function(){fadeEffect.tween()}, 20);
+  },
+  tween:function(){
+   if(this.alpha == this.target){
+    clearInterval(this.elem.si);
+   }else{
+    var value = Math.round(this.alpha + ((this.target - this.alpha) * .05)) + (1 * this.flag);
+    this.elem.style.opacity = value / 100;
+    this.elem.style.filter = 'alpha(opacity=' + value + ')';
+    this.alpha = value
+   }
+  }
+ }
+}();
+function myFunction() {
+    location.reload();
+}
+</script>
 <div class='clear'></div>
 </div>
 <div class='clear'></div>
