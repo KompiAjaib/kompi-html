@@ -1,0 +1,36 @@
+<style type='text/css'>
+#random-posts {float: center;text-transform: none;width:622px;height: 100px;background-color: #000;box-shadow: 0 0 0 1px white inset;-moz-box-shadow: 0 0 0 1px #fff inset;-webkit-box-shadow: 0 0 0 1px white inset;padding: 5px;margin-left:-10px;}
+#random-posts li{float:left;list-style:none;position:relative}
+#random-posts li:last-child{margin-right:0}
+#random-posts li img{width:110px;height:105px;padding:5px;border:2px solid #F7F0F0;}
+#random-posts li img:hover {background-color: #0083DB;color: white; font-weight: bold; text-decoration: initial;}
+#random-posts li .rp_animation{position:absolute;width:300px;top:-200px;z-index:2;background-color:#000;padding-left:18px;padding-right:8px;font-size:120%;color:#ffffff;border:1px solid white;transition:all 0.6s cubic-bezier(1,2,0,0) 0s;-moz-transition:all 0.6s cubic-bezier(1,2,0,0) 0s;-webkit-transition:all 0.6s cubic-bezier(1,2,0,0) 0s;-o-transition:all 0.6s cubic-bezier(1,2,0,0) 0s;visibility:hidden;opacity:0}
+#random-posts li:last-child .rp_animation{right:0}
+#random-posts li:hover .rp_animation{top:-90px;opacity:1;visibility:visible}
+.rp_animation span{font-size:90%;color:#B30B0B}
+.rp_animation p{font-size:90%;}
+</style>
+<ul id='random-posts'>
+<div style="width:622px;">
+<img src="https://3.bp.blogspot.com/-wqxY-3liB-w/UrW1HHDPVLI/AAAAAAAAEXA/jeIrNbbvUuo/s320/metro-arrow.png"/></div>
+<script type='text/javaScript'>
+//<![CDATA[
+var rdp_numposts = 5; //Number Of Random Posts
+var rdp_snippet_length = 150; //Length Of Description Text, 0 To Hide
+var rdp_datecomment = 'yes'; //Show Date And Comment 'yes/no'
+var rdp_comment = 'Comments'; //Text For Comment Count
+var rdp_disable = 'Comments Are Off Here...'; //Text If Comment Is Disabled On Post/Blog
+var rdp_current = [];
+var rdp_total_posts = 0;
+var rdp_current = new Array(rdp_numposts);
+function totalposts(a){rdp_total_posts=a.feed.openSearch$totalResults.$t}document.write('<script type="text/javascript" src="https://www.kompiajaib.com/feeds/posts/default?alt=json-in-script&max-results=0&callback=totalposts"></script>');function getvalue(){for(var b=0;b<rdp_numposts;b++){var d=false;var c=get_random();for(var a=0;a<rdp_current.length;a++){if(rdp_current[a]==c){d=true;break}}if(d){b--}else{rdp_current[b]=c}}}function get_random(){var a=1+Math.round(Math.random()*(rdp_total_posts-1));return a};
+//]]>
+</script>
+<script type='text/javaScript'>
+//<![CDATA[
+function random_posts(n){a=location.href;y=a.indexOf("?m=0");for(var f=0;f<rdp_numposts;f++){var l=n.feed.entry[f];var m=l.title.$t;if("content" in l){var o=l.content.$t}else{if("summary" in l){var o=l.summary.$t}else{var o=""}}o=o.replace(/<[^>]*>/g,"");if(o.length<rdp_snippet_length){var k=o}else{o=o.substring(0,rdp_snippet_length);var b=o.lastIndexOf(" ");k=o.substring(0,b)+"&#133;"}for(var e=0;e<l.link.length;e++){if("thr$total" in l){var h=l.thr$total.$t+" "+rdp_comment}else{h=rdp_disable}if(l.link[e].rel=="alternate"){var d=l.link[e].href;if(y!=-1){d=d+"?m=0"}var g=l.published.$t;if("media$thumbnail" in l){var c=l.media$thumbnail.url}else{c="https://1.bp.blogspot.com/_u4gySN2ZgqE/SosvnavWq0I/AAAAAAAAArk/yL95WlyTqr0/s400/noimage.png"}}}document.write("<li>");document.write('<a href="'+d+'" rel="nofollow"><img alt="'+m+'" src="'+c+'"/></a>');document.write('<div><h5>'+m+"</h5>");if(rdp_datecomment=="yes"){document.write("<span>"+g.substring(8,10)+"/"+g.substring(5,7)+"/"+g.substring(0,4)+" - "+h+"</span>")}document.write("<p>"+k+"</p></div>");document.write('<div style="clear:both"></div></li>')}}getvalue();for(var i=0;i<rdp_numposts;i++){document.write('<script type="text/javascript" src="https://www.kompiajaib.com/feeds/posts/default?alt=json-in-script&start-index='+rdp_current[i]+'&max-results=1&callback=random_posts"></script>')};
+//]]>
+</script>
+</ul>
+<div style='clear:both'/>
+</div>
