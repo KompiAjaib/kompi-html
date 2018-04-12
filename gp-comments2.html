@@ -9,6 +9,27 @@ body{margin:0;padding:0;}
 #comments{display:block!important;width:100%!important}
 #comments iframe{border:0;width:100%!important}
 </style>
+  <script>
+      window.addEventListener('message', receiveMessage, false);
+
+  function receiveMessage(event) {
+    if (event.data) {
+      var msg;
+      try {
+        msg = JSON.parse(event.data);
+      } catch (err) {}
+      if (!msg)
+        return false;
+      if (msg.name === 'resize') {
+        window.parent.postMessage({
+          sentinel: 'amp',
+          type: 'embed-size',
+          height: msg.data.height
+        }, '*');
+      }
+    }
+  }
+  </script>
 </head>
 <body><script src="https://apis.google.com/js/plusone.js"></script> <div id="comments"></div> <script> gapi.comments.render('comments', { href: window.location, width: '624', first_party_property: 'BLOGGER', view_type: 'FILTERED_POSTMOD' }); </script></body>
 </html>
