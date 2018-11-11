@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Related Post</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style>
+body {
+  background:0 0;
+  margin:0;
+  padding:0;
+  color:#333;
+  font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
+}
+a {
+  text-decoration:none;
+  transition:all 400ms ease-in-out;
+}
+*{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.related-post-by-title{width:100%;margin:25px 0 0;display:block;position:relative}
+.related-post-by-title ul{padding:15px 10px 10px 30px;border:1px solid #ddd;margin:0;text-align:left;}
+.related-post-by-title h4{display:inline-block;background:#fff;padding:0 15px;height:28px;line-height:28px;border:1px solid #ddd;margin:0;position:absolute;top:-14px;left:15px;font-size:16px;font-weight:700}
+.related-post-by-title li {margin-top:10px;line-height:1.2;padding-left:0!important}
+.related-post-by-title li a{font-size:16px;font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class='related-post-by-title' id='related'>
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+  function generateCss(q) {
+    var css       = document.createElement('style'),
+        sp2       = document.getElementById('related'),
+        parentDiv = sp2.parentNode;
+    css.type = 'text/css';
+    if (css.styleSheet) css.styleSheet.cssText = q;
+    else css.appendChild(document.createTextNode(q));
+    parentDiv.insertBefore(css, sp2);
+  }
+    (function() {
+    var q = '.related-post-by-title li a{font-size:' + getQueryVariable('fontSize') + ';font-weight:' + getQueryVariable('fontWeight') + ';color:#' + getQueryVariable('color') + '}';
+        generateCss(q);
+  })();
+</script>
+<script>
+function related_results_labels(e){for(var t=0;t<e.feed.entry.length;t++){var l=e.feed.entry[t];relatedTitles[relatedTitlesNum]=l.title.$t;for(var r=0;r<l.link.length;r++)if("alternate"==l.link[r].rel){relatedUrls[relatedTitlesNum]=l.link[r].href,relatedTitlesNum++;break}}}function removeRelatedDuplicates(){for(var e=new Array(0),t=new Array(0),l=0;l<relatedUrls.length;l++)contains(e,relatedUrls[l])||(e.length+=1,e[e.length-1]=relatedUrls[l],t.length+=1,t[t.length-1]=relatedTitles[l]);relatedTitles=t,relatedUrls=e}function contains(e,t){for(var l=0;l<e.length;l++)if(e[l]==t)return!0;return!1}function printRelatedLabels(){var e=Math.floor((relatedTitles.length-1)*Math.random()),t=0;for(document.write("<ul>");t<relatedTitles.length&&getQueryVariable('jumlah')>t;)document.write('<li><a href="'+relatedUrls[e]+'" title="'+relatedTitles[e]+'">'+relatedTitles[e]+"</a></li>"),e<relatedTitles.length-1?e++:e=0,t++;document.write("</ul>"),document.write()}var relatedTitles=new Array,relatedTitlesNum=0,relatedUrls=new Array;
+</script>
+<h4>Baca juga:</h4>
+<script>
+var scriptJS = getQueryVariable('url') + "/feeds/posts/default/-/" + getQueryVariable('label') + "?alt=json-in-script&amp;callback=related_results_labels&amp;max-results=" + getQueryVariable('jumlah')
+document.write("<scr" + "ipt src="+scriptJS+"></scr" + "ipt>");
+</script>      
+<script>
+removeRelatedDuplicates(); printRelatedLabels();
+</script>
+</div>
+
+</body>
+</html>
