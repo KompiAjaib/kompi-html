@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+body{margin:0;padding:0}
+.notip { width: 250px;height:98px; }
+.isinotip { background: #dff0ff; padding: 10px; border: 1px solid #2185d0; border-radius: 5px;}
+.notipnone{ display: none; }
+</style>
+</head>
+
+<body>
+<div class="notip" id="addnotif"></div>
+
+<script>
+
+var xhr = new XMLHttpRequest();
+var url = "https://api.aryanto.co.id/wp-admin/admin-ajax.php";
+var satu;
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        satu = JSON.parse(xhr.responseText);
+    }
+};
+xhr.send('action=pembeli');
+
+var ko = 0;
+var audio = new Audio('https://propolissm.com/wp-content/themes/nodb/css/audio/beep-07.mp3');
+audio.load();
+var el = document.getElementsByClassName('notip')[0];
+var intvl = setInterval( notipada, 5000 );
+function notipada(){    
+    if(el.getAttribute('class') === 'notip'){
+        addNot();
+        
+    } else {
+		if(ko === satu.length){
+			ko = 0;
+		}
+		remNot(ko);
+		ko++;
+		audio.play();
+    }
+   
+}
+function addNot(){
+    el.classList.remove('notip') ;
+    el.classList.add('notipnone');
+}
+function remNot(be){
+    el.classList.remove('notipnone') ;
+    el.classList.add('notip');
+	
+    document.getElementById('addnotif').innerHTML = '<div class="isinotip"><strong>'+ satu[be].nama+'</strong><br/>Pembeli '+satu[be].waktu+'<br/>Dari : '+ satu[be].kecamatan +' - ' +satu[be].kota+ ', '+ satu[be].provinsi +'</div>';
+	    
+}
+</script>
+</body>
+</html>
