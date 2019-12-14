@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'/>
+<meta content='width=device-width,minimum-scale=1,initial-scale=1' name='viewport'/>
+<title>Reaction Share Buttons</title>
+<style>
+body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;}
+*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+</style>
+
+</head>
+
+<body>
+<div class="sharethis-inline-reaction-buttons"></div>
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+  </script>
+<script>
+var propertyblog = getQueryVariable("property");
+var productblog = getQueryVariable("product");
+(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://platform-api.sharethis.com/js/sharethis.js#property='+propertyblog+'&product='+productblog; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
+</script>
+</body>
+</html>
