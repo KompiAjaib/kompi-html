@@ -55,6 +55,7 @@ button.close:focus{outline:0}
 <script type="text/javascript">
 function convert() {
     var ele1 = document.getElementById("somewhere");
+    var cv = ele1.value;
     var replaced;
     replaced = ele1.value;
     replaced = replaced.replace(/&/ig, "&amp;");
@@ -65,6 +66,8 @@ function convert() {
     replaced = replaced.replace(/&#174;/ig, "&reg;");
     replaced = replaced.replace(/ya'll/ig, "ya'll");
     ele1.value = replaced;
+    cv = cv.replace(/^/, "<pre><code>");
+    cv = cv.replace(/$/, "</code></pre>");
 	document.getElementById("button-link")
         .style.display = "inline-block";
     document.getElementById("btn_clear")
