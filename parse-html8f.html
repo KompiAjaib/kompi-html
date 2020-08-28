@@ -113,7 +113,8 @@ function textareaReplaceLineBreaks(textareaID) {
         var textarea = $(textareaID);
         
         textarea.val(
-            $(textarea).val().replace(/  /g,"&nbsp; ").replace(/(\r\n|\n)/g, "<br />&#013;&#010;")
+            $(textarea).val().replace(/  /g,"&nbsp; ").replace(/(\r\n|\n)/g, "<br />
+							       ")
         );
         
     })(jQuery);        
