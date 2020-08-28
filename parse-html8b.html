@@ -56,7 +56,6 @@ button.close:focus{outline:0}
 <script type="text/javascript">
 function convert() {
     var ele1 = document.getElementById("somewhere");
-    ele1.value +=  text + '\r\n';
     var replaced;
     replaced = ele1.value;
     replaced = replaced.replace(/&/ig, "&amp;");
@@ -116,6 +115,7 @@ function textareaReplaceLineBreaks(textareaID) {
         textarea.val(
             $(textarea).val().replace(/  /g,"&nbsp; ").replace(/(\r\n|\n)/g, "<br />")
         );
+    textarea.value +=  text + '\r\n';
         
     })(jQuery);        
 }
