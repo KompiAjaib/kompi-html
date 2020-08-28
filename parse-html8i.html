@@ -68,7 +68,8 @@ function convert() {
     replaced = replaced.replace(/^/, "<pre><code>");
     replaced = replaced.replace(/$/, "</code></pre>");
     replaced = replaced.replace(/  /g, "&nbsp; ");
-    replaced = replaced.replace(/(\r\n|\n)/g, "<br />")
+    replaced = replaced.replace(/(\r\n|\n)/g, "<br />
+				")
     ele1.value = replaced;
 	document.getElementById("button-link")
         .style.display = "inline-block";
