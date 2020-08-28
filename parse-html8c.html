@@ -68,6 +68,7 @@ function convert() {
     replaced = replaced.replace(/^/, "<pre><code>");
     replaced = replaced.replace(/$/, "</code></pre>");
     ele1.value = replaced;
+    replaced +=  text + '\r\n';
 	document.getElementById("button-link")
         .style.display = "inline-block";
     document.getElementById("btn_clear")
@@ -115,7 +116,6 @@ function textareaReplaceLineBreaks(textareaID) {
         textarea.val(
             $(textarea).val().replace(/  /g,"&nbsp; ").replace(/(\r\n|\n)/g, "<br />")
         );
-    textarea.value +=  text + '\r\n';
         
     })(jQuery);        
 }
