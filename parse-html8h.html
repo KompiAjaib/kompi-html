@@ -67,6 +67,8 @@ function convert() {
     replaced = replaced.replace(/ya'll/ig, "ya'll");
     replaced = replaced.replace(/^/, "<pre><code>");
     replaced = replaced.replace(/$/, "</code></pre>");
+    replaced = replaced.replace(/  /g, "&nbsp; ");
+    replaced = replaced.replace(/(\r\n|\n)/g, "<br />")
     ele1.value = replaced;
 	document.getElementById("button-link")
         .style.display = "inline-block";
@@ -93,7 +95,6 @@ function focusFunction() {
     document.getElementById("btn-reset").style.display = "block";
 }
 </script>
-<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
 <script src='https://cdn.statically.io/gh/zenorocha/clipboard.js/v1.5.16/dist/clipboard.min.js'></script>
 <script>
 //<![CDATA[
@@ -107,17 +108,5 @@ clipboard.on("success", function (o) {
 }), clipboard.on("error", function (o) {
     console.log(o)
 });
-function textareaReplaceLineBreaks(textareaID) {
-    (function($) {        
-        if (!textareaID) var textareaID = "#somewhere";
-        var textarea = $(textareaID);
-        
-        textarea.val(
-            $(textarea).val().replace(/  /g,"&nbsp; ").replace(/(\r\n|\n)/g, "<br />
-")
-        );
-        
-    })(jQuery);        
-}
 //]]>
 </script>
