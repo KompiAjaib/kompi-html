@@ -68,7 +68,7 @@ function convert() {
     replaced = replaced.replace(/^/, "<pre><code>");
     replaced = replaced.replace(/$/, "</code></pre>");
     ele1.value = replaced;
-    replaced +=  text + '\r\n';
+    replaced +=  text + '&#013;&#010;';
 	document.getElementById("button-link")
         .style.display = "inline-block";
     document.getElementById("btn_clear")
