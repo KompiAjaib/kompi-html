@@ -264,10 +264,10 @@ function embedConvert() {
 var ctarea = document.getElementById('codes'),
     cv = ctarea.value,
     opt20 = document.getElementById('opt20')
-    oldUrl = cv;
-    url = new URL(oldUrl);
-    url.hostname = 'embed.disqus.com';
   cv = cv.replace(/\t/g, "    ");
+var oldUrl = cv;
+var url = new URL(oldUrl);
+    url.hostname = 'embed.disqus.com';
     if (opt20.checked){ cv = cv.replace(/^/, "<iframe src=\url.href);
       cv = cv.replace(/$/, "\" style=\"border:0;width:100%;height:300px;\" seamless=\"seamless\" scrolling=\"no\" allowtransparency=\"true\"><\/iframe>");
   ctarea.value = cv;
