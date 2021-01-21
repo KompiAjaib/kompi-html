@@ -83,7 +83,7 @@ button.close:focus {
 <body>
 
 <div id='parser'>
-<textarea id='codes' placeholder='Tulis/paste kode atau teks di sini lalu klik tombol yang sesuai. Untuk embed komentar, ambil ID DISQUS dari URL tombol share komentar Disqus.' spellcheck='false'></textarea>
+<textarea id='codes' placeholder='Tulis/paste kode atau teks di sini lalu klik tombol yang sesuai. Untuk embed komentar, copy URL komentar dari tombol share komentar Disqus lalu paste di sini.' spellcheck='false'></textarea>
 <div class='alert alert-success margin-bottom-20 collapse' id='btnInfo' role='alert'>
         <button class='close close-copy' onclick='document.getElementById(&quot;btnInfo&quot;).style.display = &quot;none&quot;;cdClear();' type='button'><span aria-hidden='true'>&#215;</span></button>
         <h4>Codes copied to clipboard!</h4>
@@ -97,7 +97,7 @@ button.close:focus {
 <button class='btn btn-primary btn-xs' id='cvrt8' onclick='codeConvert();this.disabled = true;'>code</button>
 <button class='btn btn-primary btn-xs' id='cvrt9' onclick='precodeConvert();this.disabled = true;'>pre code</button>
 <button class='btn btn-primary btn-xs' id='cvrt10' onclick='spoilerConvert();this.disabled = true;'>spoiler</button><br/>
-<button class='btn btn-primary btn-xs' id='cvrt11' onclick='embedConvert();this.disabled = true;'>embed</button> <span>How to get ID DISQUS - <a href='https://3.bp.blogspot.com/-5wJN6R18cZs/V8LMLmATPCI/AAAAAAAAnrk/j6xr9K2DPDMX7RNpb5qXttuHUwKQ7QK-wCLcB/s1600/Animation2.gif' rel='nofollow' target='_blank' title='Lihat di sini'>http://disq.us/p/[ID DISQUS]</a></span><br/>
+<button class='btn btn-primary btn-xs' id='cvrt11' onclick='embedConvert();this.disabled = true;'>embed</button> <span><a href='https://3.bp.blogspot.com/-5wJN6R18cZs/V8LMLmATPCI/AAAAAAAAnrk/j6xr9K2DPDMX7RNpb5qXttuHUwKQ7QK-wCLcB/s1600/Animation2.gif' rel='nofollow noopener' target='_blank' title='How to get comment URL'>How to get comment's URL</a></span><br/>
 <button class='btn button-link btn-xs btn-info' id='button-link' data-clipboard-action='copy' data-clipboard-target='#codes' type='submit'>Copy codes to clipboard!</button> <button class='btn btn-danger btn-xs' onclick='cdClear();'>Bersihkan</button> 
 </span>
 <span class='checkbox'>
@@ -259,23 +259,23 @@ var ctarea = document.getElementById('codes'),
   document.getElementById("button-link")
         .style.display = "inline-block"}
 };
-
 function embedConvert() {
 var ctarea = document.getElementById('codes'),
-    cv = ctarea.value,
-    opt20 = document.getElementById('opt20')
-    cv.hostname = "embed.disqus.com";
-  cv = cv.replace(/\t/g, "  ");
+    oldUrl = ctarea.value;
+    url = new URL(oldUrl);
+    url.hostname = "embed.disqus.com";
+    url.protocol = "https:";
+    cv = url.href;
+var opt20 = document.getElementById('opt20');
     if (opt20.checked){ cv = cv.replace(/^/, "<iframe src=\"");
       cv = cv.replace(/$/, "\" style=\"border:0;width:100%;height:300px;\" seamless=\"seamless\" scrolling=\"no\" allowtransparency=\"true\"><\/iframe>");
   ctarea.value = cv;
   ctarea.focus();
   document.getElementById("button-link")
-        .style.display = "inline-block"}
+        .style.display = "inline-block"};
 };
-
 </script>
-<script src='https://cdn.statically.io/gh/zenorocha/clipboard.js/v1.5.16/dist/clipboard.min.js'></script>
+<script src='https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.16/dist/clipboard.min.js'></script>
 <script>
 //<![CDATA[
 var clipboard = new Clipboard(".button-link");
