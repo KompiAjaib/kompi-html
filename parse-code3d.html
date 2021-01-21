@@ -269,7 +269,7 @@ var oldUrl = cv;
 var url = new URL(oldUrl);
     url.hostname = 'embed.disqus.com';
     if (opt20.checked){ cv = cv.replace(/^/, "<iframe src=\"");
-      cv = cv.replace(/url.href/, "\" style=\"border:0;width:100%;height:300px;\" seamless=\"seamless\" scrolling=\"no\" allowtransparency=\"true\"><\/iframe>");
+      cv = cv.replace(/$/, "\" style=\"border:0;width:100%;height:300px;\" seamless=\"seamless\" scrolling=\"no\" allowtransparency=\"true\"><\/iframe>");
   ctarea.value = cv;
   ctarea.focus();
   document.getElementById("button-link")
