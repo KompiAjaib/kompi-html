@@ -263,8 +263,8 @@ var ctarea = document.getElementById('codes'),
 function embedConvert() {
 var ctarea = document.getElementById('codes'),
     cv = ctarea.value,
-    cv.hostname = "embed.disqus.com",
     opt20 = document.getElementById('opt20')
+    cv.hostname = "embed.disqus.com";
   cv = cv.replace(/\t/g, "  ");
     if (opt20.checked){ cv = cv.replace(/^/, "<iframe src=\"");
       cv = cv.replace(/$/, "\" style=\"border:0;width:100%;height:300px;\" seamless=\"seamless\" scrolling=\"no\" allowtransparency=\"true\"><\/iframe>");
