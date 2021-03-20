@@ -1,0 +1,23 @@
+<script>
+  window.addEventListener('message', receiveMessage, false);
+
+  function receiveMessage(event) {
+    if (event.data) {
+      var msg;
+      try {
+        msg = JSON.parse(event.data);
+      } catch (err) {}
+      if (!msg)
+        return false;
+      if (msg.name === 'resize') {
+        window.parent.postMessage({
+          sentinel: 'amp',
+          type: 'embed-size',
+          height: msg.data.height
+        }, '*');
+      }
+    }
+  }
+
+var d=document.createElement("script");d.async=true;d.src="https://comments.app/js/widget.js?3";d.setAttribute("data-comments-app-website","r2w0bWoy");d.setAttribute("data-limit","5");d.setAttribute("data-color","1A237E");d.setAttribute("data-colorful","1"),document.body.appendChild(d)
+</script>
