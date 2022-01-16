@@ -1,0 +1,50 @@
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style type='text/css'>
+body{font-family:Georgia;background: #E8EAF6;}
+html{scrollbar-width:none;}
+html::-webkit-scrollbar{display:none;}
+*{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+#feed-container{background:#E8EAF6;display:block;clear:both;margin:0;padding:0;list-style:none;overflow:hidden;position:relative;border-top:none}
+#feed-container li{list-style:none;margin:0;padding:0;color:#000;width:auto;float:left;display:inline}
+#feed-container li .inner{margin:15px 0;height:auto;overflow:hidden;word-wrap:break-word;text-overflow:ellipsis}
+#feed-container li a{text-decoration:none;color:#2B0C93;font-weight:300;font-size:20px;}
+#feed-container li a:hover{text-decoration:none;color:#E94141}
+#feed-container li .news-text{margin-top:5px;line-height:1.3em!important;font-size:14px;}
+#feed-container li img{margin:0 15px 5px 0;padding:7px 7px 7px 0;float:left;display:block;}
+#result-desc{margin:0;padding:0;}
+#result-desc div,#result-desc span{display:block;margin:0;padding:5px 0 7px;color:#D64D52}
+#result-desc div{color:inherit}
+#feed-nav{margin:10px 0 30px;text-align:center;font-weight:500}
+#feed-nav a,#feed-nav span{border:1px solid #2B0C93;border-radius:5px;padding:0;text-decoration:none;display:block;height:30px;line-height:32px}
+#feed-nav a,#feed-nav span:hover{color:#2B0C93}
+#feed-nav a:active,#feed-nav a:hover{color:#E94141}
+#feed-nav span{cursor:wait}
+@media (max-width:600px){
+#table-outer table{margin:0 auto;width:100%}
+#feed-container,#table-outer{margin:0 auto}
+#feed-container li a{font-size:16px;}
+#feed-container li .inner{margin:5px auto;height:auto}
+#feedContainer li{float:none;display:block;width:auto;height:auto}
+#feed-container li .news-text,#feedContainer:after,#feed-container li img{display:none!important}
+}
+</style>
+<header id="result-desc"></header>
+<ul id="feed-container"></ul>
+<div id="feed-nav"></div>
+<script type="text/javaScript">
+var label="RA-TK";
+</script>
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+</script>
+<script type='text/javascript'> 
+document.write;var loadToc,loadCategories,_toc={init:function(){var e={homePage:"https://www.nomifrod.com",maxResults:10,numChars:270,thumbWidth:140,thumbHeight:95,navText:"Tampilkan artikel selanjutnya &#9660;",resetToc:"Kembali ke Awal",noImage:"http://2.bp.blogspot.com/-11FkySHGB5Y/TpZ6SSbsF2I/AAAAAAAAA94/zK10UaL7jgo/s1600/images.jpeg",loading:"<span>Memuat...</span>"},t=(window,document),n=function(e){return t.getElementById(e)},a={e:n("result-desc"),f:n("feed-container"),g:n("feed-nav"),h:t.getElementsByTagName("head")[0],i:0,j:null,k:"published",l:0,m:""},l={a:function(){old=n("temporer-script"),old.parentNode.removeChild(old)},b:function(e){var i=t.createElement("script");i.type="text/javascript",i.id="temporer-script",i.src=e,n("temporer-script")&&l.a(),a.h.appendChild(i)},c:function(t,n,i){a.i++,a.e.innerHTML=e.counting,a.g.innerHTML=e[1==t?"searching":"loading"],0===t?l.b(null!==n?e.homePage+"/feeds/posts/summary/-/"+n+"?alt=json-in-script&start-index="+(a.i*e.maxResults+1)+"&max-results="+e.maxResults+"&orderby="+i+"&callback=loadToc":e.homePage+"/feeds/posts/default/-/"+label+"?alt=json-in-script&start-index="+(a.i*e.maxResults+1)+"&max-results="+e.maxResults+"&orderby="+i+"&callback=loadToc"):1==t&&l.b(e.homePage+"/feeds/posts/default/-/"+label+"?alt=json-in-script&start-index="+(a.i*e.maxResults+1)+"&max-results="+e.maxResults+"&q="+n+"&orderby="+i+"&callback=loadToc"),a.j=null!==n?n:null,a.l=t,a.a.disabled=!0,a.b.children[0].disabled=!0},d:function(n){var i;if(a.g.innerHTML="",a.e.innerHTML="<div>Total: "+n.feed.openSearch$totalResults.$t+" Posts</div>","entry"in n.feed){for(var r,s,o,d,c=n.feed.entry,u="0 Komentar",m=0;m<e.maxResults&&m!=c.length;m++){r=c[m].title.$t,o="summary"in c[m]?c[m].summary.$t.replace(/<br ?\/?>/gi," ").replace(/<(.*?)>/g,"").replace(/<iframe/gi,"").substring(0,e.numChars):"",d="media$thumbnail"in c[m]?c[m].media$thumbnail.url.replace(/\/s[0-9]+\-c/,"/s"+e.thumbWidth):e.noImage.replace(/\/s[0-9]+\-c/,"/s"+e.thumbWidth);for(var h=0,b=c[m].link.length;b>h;h++)s="alternate"==c[m].link[h].rel?c[m].link[h].href:"#";for(var p=0,g=c[m].link.length;g>p;p++)if("replies"==c[m].link[p].rel&&"text/html"==c[m].link[p].type){u=c[m].link[p].title;break}i=t.createElement("li"),i.innerHTML='<div class="inner"><img style="width:'+e.thumbWidth+"px;height:"+e.thumbHeight+'px;" src="'+d+'" alt="'+r+'"><a class="toc-title" href="'+s+'" target="_blank" title="'+r+'">'+r+'</a><div class="news-text">'+o+'&hellip;<br style="clear:both;"></div></div>',a.f.appendChild(i)}i=t.createElement("a"),i.href="#load-more",i.innerHTML=e.navText,i.onclick=function(){return l.c(a.l,a.j,a.k),!1}}else i=t.createElement("a"),i.href="#reset-content",i.innerHTML=e.resetToc,i.onclick=function(){return a.i=-1,a.e.innerHTML=e.counting,a.f.innerHTML="",l.c(0,null,"published"),a.a.innerHTML=a.a.innerHTML,a.b.children[0].innerHTML=a.b.children[0].innerHTML,!1};a.g.appendChild(i),a.a.disabled=!1,a.b.children[0].disabled=!1}};loadToc=l.d,loadCategories=l.e,l.b(e.homePage+"/feeds/posts/default/-/"+label+"?alt=json-in-script&start-index="+(a.i+1)+"&max-results="+e.maxResults+"&orderby=published&callback=loadToc"),l.b(e.homePage+"/feeds/posts/default/-/"+label+"?alt=json-in-script&max-results=0&orderby=published&callback=loadCategories"),a.a.onchange=function(){a.i=-1,a.f.innerHTML="",a.g.innerHTML=e.counting,a.b.children[0].innerHTML=a.b.children[0].innerHTML,l.c(0,null,this.value),a.k=this.value},a.c.onsubmit=function(){return a.i=-1,a.f.innerHTML="",a.m=a.d.value,l.c(1,a.d.value,a.k),!1}}};_toc.init();
+</script>
